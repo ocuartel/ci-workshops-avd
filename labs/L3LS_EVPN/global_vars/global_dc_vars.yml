@@ -1,4 +1,9 @@
 ---
+# Login Banner
+custom_structured_configuration_banners:
+  motd: |
+    You shall not pass. Unless you are authorized. Then you shall pass.
+    EOF
 # Credentials for EOS Switches
 ansible_user: arista
 ansible_password: "{{ (lookup('file', '/home/coder/.config/code-server/config.yaml', errors='ignore') | from_yaml).password | default(lookup('ansible.builtin.env', 'LABPASSPHRASE')) }}"
