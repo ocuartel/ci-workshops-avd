@@ -4,6 +4,13 @@ custom_structured_configuration_banners:
   motd: |
     You shall not pass. Unless you are authorized. Then you shall pass.
     EOF
+# Syslog
+logging_settings:
+  hosts:
+    - name: 10.200.0.108
+    - name: 10.200.1.108
+  vrfs:
+    - name: default
 # Credentials for EOS Switches
 ansible_user: arista
 ansible_password: "{{ (lookup('file', '/home/coder/.config/code-server/config.yaml', errors='ignore') | from_yaml).password | default(lookup('ansible.builtin.env', 'LABPASSPHRASE')) }}"
